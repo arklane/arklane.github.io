@@ -107,37 +107,78 @@ body {
     transform: translateY(-2px);
 }
 
-/* 底部样式 */
+/* 底部样式更新 */
 .site-footer {
-    background: var(--dark-bg);
-    color: var(--light-text);
-    padding: 3rem 0;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 4rem 0;
     margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
 }
 
-/* 更新底部样式 */
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
 .footer-content {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-section {
+    padding: 0 1.5rem;
 }
 
 .footer-section h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
 }
 
-/* 移除快速链接相关样式 */
-.footer-section a {
-    display: none;
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section p:hover {
+    color: white;
 }
 
 .footer-bottom {
-    margin-top: 2rem;
+    margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
 }
+
 /* 给主要内容区域添加上边距，防止被导航栏遮挡 */
 main {
     position: relative;
@@ -271,5 +312,20 @@ main {
     
     .hero-content {
         padding: 2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-section {
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
