@@ -1,0 +1,8 @@
+{
+    "id": "1",
+    "title": "自留纪念",
+    "date": "2025-02-11",
+    "coverImage": "/images/blog/blog-1.jpg",
+    "content": "<p>这是博客内容...</p><img src='/images/blog/content-1.jpg' alt='内容图片'/>",
+    "tags": ["塔防游戏", "纪念向"]
+}

@@ -16,6 +16,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('post-date').textContent = new Date(post.date).toLocaleDateString('zh-CN');
         document.getElementById('post-body').innerHTML = post.content;
         
+        // 设置封面图片
+        if (post.coverImage) {
+            document.getElementById('post-cover').src = post.coverImage;
+        }
+        
         // 渲染标签
         document.getElementById('post-tags').innerHTML = post.tags
             .map(tag => `<span class="tag">${tag}</span>`)
