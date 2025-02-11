@@ -117,6 +117,106 @@
     border-radius: 4px;
 }
 
+/* 博客文章样式 */
+.blog-posts {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.post-preview {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.post-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.post-preview h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.post-preview h3 a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-preview h3 a:hover {
+    color: var(--primary-color);
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.post-tags {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.tag {
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background: var(--primary-color);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.excerpt {
+    color: #555;
+    line-height: 1.8;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+/* 博客标题样式 */
+.blog-header {
+    text-align: center;
+    margin: 4rem 0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.blog-header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+/* 标签筛选器样式 */
+.tag-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
 /* 移动端适配 */
 @media (max-width: 768px) {
     .post-image {
@@ -125,5 +225,22 @@
     
     .post-content img {
         max-width: 100%; /* 移动端图片占满宽度 */
+    }
+
+    .post-preview {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .post-preview h3 {
+        font-size: 1.4rem;
+    }
+
+    .blog-header {
+        margin: 2rem 0;
+    }
+
+    .tag-filter {
+        padding: 1rem;
     }
 }
