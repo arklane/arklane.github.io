@@ -263,32 +263,6 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* 重写标签筛选器中的标签基础样式 */
-.tag-filter .tag {
-    padding: 0.4rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    background-color: var(--primary-color);
-    color: white;
-    cursor: pointer;
-    transition: none; /* 移除所有过渡效果 */
-}
-
-/* 文章预览中的标签样式 */
-.post-preview .post-tags .tag {
-    padding: 0.4rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    background-color: var(--primary-color);
-    color: white;
-    pointer-events: none; /* 禁用鼠标事件 */
-}
-
-/* 标签筛选器中激活状态的样式 */
-.tag-filter .tag.active {
-    background-color: var(--secondary-color);
-}
-
 /* 移动端适配 */
 @media (max-width: 768px) {
     .post-image {
