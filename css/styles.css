@@ -138,7 +138,6 @@ body {
     border-top: 1px solid rgba(255,255,255,0.1);
     text-align: center;
 }
-
 /* 给主要内容区域添加上边距，防止被导航栏遮挡 */
 main {
     position: relative;
