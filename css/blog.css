@@ -1,0 +1,27 @@
+.post-preview {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.code-block {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}

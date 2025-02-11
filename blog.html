@@ -1,72 +1,16 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客 - My Personal Website</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
-    <div id="navbar"></div>
-
-    <div class="container mt-5">
-        <h2 class="text-center mb-4">技术博客</h2>
-        <div class="row">
-            <!-- 文章列表 -->
-            <div class="col-md-8">
-                <div class="blog-post mb-4">
-                    <h3><a href="blog/post1.html" class="text-decoration-none">使用React Hooks优化前端性能</a></h3>
-                    <div class="blog-meta text-muted mb-2">
-                        <span>发布于 2023-12-01</span> | 
-                        <span>前端开发</span>
-                    </div>
-                    <p class="blog-excerpt">
-                        详细探讨React Hooks的使用技巧和性能优化方案，包括useCallback和useMemo的最佳实践...
-                    </p>
-                    <a href="blog/post1.html" class="btn btn-outline-primary">阅读全文</a>
-                </div>
-
-                <div class="blog-post mb-4">
-                    <h3><a href="blog/post2.html" class="text-decoration-none">Node.js微服务架构实践</a></h3>
-                    <div class="blog-meta text-muted mb-2">
-                        <span>发布于 2023-11-25</span> | 
-                        <span>后端开发</span>
-                    </div>
-                    <p class="blog-excerpt">
-                        分享在实际项目中使用Node.js构建微服务的经验，包括服务拆分、通信和部署策略...
-                    </p>
-                    <a href="blog/post2.html" class="btn btn-outline-primary">阅读全文</a>
-                </div>
-            </div>
-
-            <!-- 侧边栏 -->
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        分类
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            前端开发
-                            <span class="badge bg-primary rounded-pill">12</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            后端开发
-                            <span class="badge bg-primary rounded-pill">8</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            DevOps
-                            <span class="badge bg-primary rounded-pill">5</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<!-- 在首页基础上添加以下内容 -->
+<section class="blog-posts">
+    <div class="post-preview">
+        <div class="post-meta">
+            <time datetime="2023-08-20">2023年8月20日</time>
+            <span class="reading-time">5分钟阅读</span>
+        </div>
+        <h3><a href="post.html">我的第一篇技术博客</a></h3>
+        <p class="excerpt">探索现代Web开发的奥秘...</p>
+        <div class="post-tags">
+            <span class="tag">前端开发</span>
+            <span class="tag">JavaScript</span>
         </div>
     </div>
-
-    <div id="footer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
-</body>
-</html>
+    <!-- 更多文章预览 -->
+</section>
