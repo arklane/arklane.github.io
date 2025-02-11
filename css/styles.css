@@ -16,6 +16,7 @@
 body {
     font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
+    padding-top: 60px; /* 导航栏高度 */
 }
 
 .container {
@@ -128,7 +129,23 @@ body {
 
 /* 给主要内容区域添加上边距，防止被导航栏遮挡 */
 main {
-    padding-top: 80px; /* 根据导航栏高度调整 */
+    position: relative;
+    width: 100%;
+}
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-text);
+}
+
+.section {
+    margin-top: 2rem;
+    padding: 4rem 0;
 }
 
 /* 调整hero区域样式 */
