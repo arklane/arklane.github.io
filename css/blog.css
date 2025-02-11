@@ -170,7 +170,8 @@
     margin-top: 1.5rem;
 }
 
-.tag {
+/* 移除之前的 .tag 样式，重新定义 */
+.tag-filter .tag {
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -180,11 +181,21 @@
     cursor: pointer;
 }
 
-/* 删除hover效果，只保留active状态 */
-.tag.active {
+/* 特别指定标签筛选器中的标签样式 */
+.tag-filter .tag.active {
     background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 文章预览中的标签样式（不可点击） */
+.post-preview .tag {
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background: var(--primary-color);
+    color: white;
+    pointer-events: none; /* 禁用鼠标事件 */
 }
 
 .excerpt {
@@ -255,12 +266,6 @@
 
 .tag-filter {
     margin: 0;
-}
-
-.tag.active {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* 移动端适配 */
