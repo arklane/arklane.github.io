@@ -55,11 +55,7 @@ function toggleTag(tag) {
 function updateTagsUI() {
     document.querySelectorAll('.tag').forEach(tagElement => {
         const tag = tagElement.dataset.tag;
-        if (selectedTags.has(tag)) {
-            tagElement.classList.add('active');
-        } else {
-            tagElement.classList.remove('active');
-        }
+        tagElement.classList.toggle('active', selectedTags.has(tag));
     });
 }
 
@@ -80,13 +76,6 @@ function filterAndRenderPosts() {
         const dateB = new Date(b.date);
         return currentSort === 'newest' ? dateB - dateA : dateA - dateB;
     });
-    
-    // 渲染结果
-    const container = document.querySelector('.blog-posts');
-    if (filteredPosts.length === 0) {
-        container.innerHTML = '<div class="no-results">没有找到匹配的文章</div>';
-        return;
-    }
     
     renderPosts(filteredPosts);
 }
