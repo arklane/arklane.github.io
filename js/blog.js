@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 添加排序监听器
     document.getElementById('sort-select').addEventListener('change', (e) => {
         currentSort = e.target.value;
-        filterAndRenderPosts();
+        sortAndRenderPosts();
     });
 });
 
@@ -18,7 +18,7 @@ async function loadBlogPosts() {
         const response = await fetch('/blog-posts/list.json');
         blogPosts = await response.json();
         renderTags();
-        filterAndRenderPosts();
+        sortAndRenderPosts();
     } catch (error) {
         console.error('加载博客文章失败:', error);
     }
@@ -47,7 +47,7 @@ function toggleTag(tag) {
     } else {
         selectedTags.add(tag);
     }
-    filterAndRenderPosts();
+    sortAndRenderPosts();
     updateTagsUI();
 }
 
@@ -59,25 +59,26 @@ function updateTagsUI() {
     });
 }
 
-// 过滤并渲染文章
-function filterAndRenderPosts() {
-    let filteredPosts = [...blogPosts];
+// 移除原有的 filterAndRenderPosts 函数
+// 添加新的排序和渲染函数
+function sortAndRenderPosts() {
+    let sortedPosts = [...blogPosts];
     
     // 标签筛选
     if (selectedTags.size > 0) {
-        filteredPosts = filteredPosts.filter(post =>
+        sortedPosts = sortedPosts.filter(post =>
             post.tags.some(tag => selectedTags.has(tag))
         );
     }
     
     // 时间排序
-    filteredPosts.sort((a, b) => {
+    sortedPosts.sort((a, b) => {
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
         return currentSort === 'newest' ? dateB - dateA : dateA - dateB;
     });
     
-    renderPosts(filteredPosts);
+    renderPosts(sortedPosts);
 }
 
 function renderPosts(posts) {
