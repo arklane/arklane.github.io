@@ -1,5 +1,16 @@
 let blogPosts = [];
 let selectedTags = new Set();
+let currentSort = 'newest';
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadBlogPosts();
+    
+    // 添加排序监听器
+    document.getElementById('sort-select').addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        filterAndRenderPosts();
+    });
+});
 
 // 加载博客文章
 async function loadBlogPosts() {
@@ -50,27 +61,37 @@ function updateTagsUI() {
 
 // 过滤并渲染文章
 function filterAndRenderPosts() {
-    let filteredPosts = blogPosts;
+    let filteredPosts = [...blogPosts];
+    
+    // 标签筛选
     if (selectedTags.size > 0) {
-        filteredPosts = blogPosts.filter(post =>
+        filteredPosts = filteredPosts.filter(post =>
             post.tags.some(tag => selectedTags.has(tag))
         );
     }
     
+    // 时间排序
+    filteredPosts.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return currentSort === 'newest' ? dateB - dateA : dateA - dateB;
+    });
+    
+    renderPosts(filteredPosts);
+}
+
+function renderPosts(posts) {
     const container = document.querySelector('.blog-posts');
-    container.innerHTML = filteredPosts.map(post => `
+    container.innerHTML = posts.map(post => `
         <article class="post-preview">
-            <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
             <div class="post-meta">
                 <time>${new Date(post.date).toLocaleDateString('zh-CN')}</time>
-                <div class="post-tags">
-                    ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                </div>
             </div>
-            <p class="excerpt">${post.excerpt}</p>
+            <h3><a href="post.html?id=${post.id}">${post.title}</a></h3>
+            <p class="excerpt">${post.excerpt || ''}</p>
+            <div class="post-tags">
+                ${post.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+            </div>
         </article>
     `).join('');
 }
-
-// 初始化
-document.addEventListener('DOMContentLoaded', loadBlogPosts);

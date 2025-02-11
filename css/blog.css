@@ -217,6 +217,49 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+.blog-controls {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.sort-control {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.sort-control label {
+    margin-right: 1rem;
+    color: #666;
+}
+
+.sort-control select {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-control select:hover {
+    border-color: var(--primary-color);
+}
+
+.tag-filter {
+    margin: 0;
+}
+
+.tag.active {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
 /* 移动端适配 */
 @media (max-width: 768px) {
     .post-image {
