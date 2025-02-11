@@ -180,7 +180,8 @@
     cursor: pointer;
 }
 
-.tag:hover, .tag.active {
+/* 删除hover效果，只保留active状态 */
+.tag.active {
     background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
