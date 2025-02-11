@@ -109,10 +109,67 @@ body {
 
 /* 底部样式 */
 .site-footer {
-    background: var(--dark-bg);
-    color: var(--light-text);
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    color: white;
     padding: 3rem 0;
     margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(52,152,219,0.1) 0%, rgba(46,204,113,0.1) 100%);
+    pointer-events: none;
+}
+
+.footer-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary-color);
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* 更新底部样式 */
@@ -130,13 +187,6 @@ body {
 /* 移除快速链接相关样式 */
 .footer-section a {
     display: none;
-}
-
-.footer-bottom {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    text-align: center;
 }
 
 /* 给主要内容区域添加上边距，防止被导航栏遮挡 */
