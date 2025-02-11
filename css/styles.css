@@ -44,6 +44,12 @@ body {
     align-items: center;
 }
 
+/* 导航栏活动项样式 */
+.nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 /* 项目卡片悬停动画 */
 .project-card {
     transition: transform 0.3s ease;
@@ -86,6 +92,38 @@ body {
     color: white;
     cursor: pointer;
     transition: background 0.3s ease;
+}
+
+/* 底部样式 */
+.site-footer {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    padding: 3rem 0;
+    margin-top: 4rem;
+}
+
+/* 更新底部样式 */
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* 移除快速链接相关样式 */
+.footer-section a {
+    display: none;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
 }
 
 /* 响应式设计 */
