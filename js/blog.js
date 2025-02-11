@@ -48,20 +48,35 @@ function renderTags() {
 
 // 切换标签选中状态
 function toggleTag(tag) {
-    if (selectedTags.has(tag)) {
-        selectedTags.delete(tag);
+    // 清除其他标签的选中状态
+    selectedTags.clear();
+    
+    // 如果点击的标签已经是激活状态，则取消选中
+    const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+    if (tagElement.classList.contains('active')) {
+        selectedTags.clear();
     } else {
+        // 否则选中当前标签
         selectedTags.add(tag);
     }
+    
     sortAndRenderPosts();
     updateTagsUI();
 }
 
 // 更新标签UI
 function updateTagsUI() {
+    // 更新所有标签的视觉状态
     document.querySelectorAll('.tag').forEach(tagElement => {
-        const tag = tagElement.dataset.tag;
-        tagElement.classList.toggle('active', selectedTags.has(tag));
+        tagElement.classList.remove('active');
+    });
+    
+    // 高亮当前选中的标签
+    selectedTags.forEach(tag => {
+        const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+        if (tagElement) {
+            tagElement.classList.add('active');
+        }
     });
 }
 
