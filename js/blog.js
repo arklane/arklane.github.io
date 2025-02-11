@@ -16,11 +16,17 @@ document.addEventListener('DOMContentLoaded', () => {
 async function loadBlogPosts() {
     try {
         const response = await fetch('/blog-posts/list.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         blogPosts = await response.json();
+        console.log('加载的博客文章:', blogPosts); // 添加调试日志
         renderTags();
         sortAndRenderPosts();
     } catch (error) {
         console.error('加载博客文章失败:', error);
+        // 显示错误信息给用户
+        document.querySelector('.blog-posts').innerHTML = '<p>加载博客文章失败，请稍后重试。</p>';
     }
 }
 
@@ -62,6 +68,11 @@ function updateTagsUI() {
 // 移除原有的 filterAndRenderPosts 函数
 // 添加新的排序和渲染函数
 function sortAndRenderPosts() {
+    if (!Array.isArray(blogPosts) || blogPosts.length === 0) {
+        console.log('没有博客文章可显示');
+        return;
+    }
+    
     let sortedPosts = [...blogPosts];
     
     // 标签筛选
