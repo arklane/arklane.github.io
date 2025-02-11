@@ -170,8 +170,7 @@
     margin-top: 1.5rem;
 }
 
-/* 移除之前的 .tag 样式，重新定义 */
-.tag-filter .tag {
+.tag {
     padding: 0.4rem 1.2rem;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -181,21 +180,11 @@
     cursor: pointer;
 }
 
-/* 特别指定标签筛选器中的标签样式 */
-.tag-filter .tag.active {
+/* 删除hover效果，只保留active状态 */
+.tag.active {
     background: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-/* 文章预览中的标签样式（不可点击） */
-.post-preview .tag {
-    padding: 0.4rem 1.2rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    background: var(--primary-color);
-    color: white;
-    pointer-events: none; /* 禁用鼠标事件 */
 }
 
 .excerpt {
@@ -266,6 +255,38 @@
 
 .tag-filter {
     margin: 0;
+}
+
+.tag.active {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 重写标签筛选器中的标签基础样式 */
+.tag-filter .tag {
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: none; /* 移除所有过渡效果 */
+}
+
+/* 文章预览中的标签样式 */
+.post-preview .post-tags .tag {
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background-color: var(--primary-color);
+    color: white;
+    pointer-events: none; /* 禁用鼠标事件 */
+}
+
+/* 标签筛选器中激活状态的样式 */
+.tag-filter .tag.active {
+    background-color: var(--secondary-color);
 }
 
 /* 移动端适配 */

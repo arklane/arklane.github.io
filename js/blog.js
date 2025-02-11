@@ -48,11 +48,13 @@ function renderTags() {
 
 // 切换标签选中状态
 function toggleTag(tag) {
+    console.log('点击标签:', tag); // 添加调试日志
+    
     // 清除其他标签的选中状态
     selectedTags.clear();
     
     // 如果点击的标签已经是激活状态，则取消选中
-    const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+    const tagElement = document.querySelector(`.tag-filter .tag[data-tag="${tag}"]`);
     if (tagElement.classList.contains('active')) {
         selectedTags.clear();
     } else {
@@ -67,13 +69,13 @@ function toggleTag(tag) {
 // 更新标签UI
 function updateTagsUI() {
     // 更新所有标签的视觉状态
-    document.querySelectorAll('.tag').forEach(tagElement => {
+    document.querySelectorAll('.tag-filter .tag').forEach(tagElement => {
         tagElement.classList.remove('active');
     });
     
     // 高亮当前选中的标签
     selectedTags.forEach(tag => {
-        const tagElement = document.querySelector(`[data-tag="${tag}"]`);
+        const tagElement = document.querySelector(`.tag-filter .tag[data-tag="${tag}"]`);
         if (tagElement) {
             tagElement.classList.add('active');
         }
