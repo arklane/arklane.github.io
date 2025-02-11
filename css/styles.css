@@ -170,10 +170,14 @@ main {
 }
 
 .hero-content h1 {
-    font-size: 2.5rem; /* 稍微减小标题字体大小 */
-    margin-bottom: 1rem; /* 减小标题下方间距 */
+    font-size: 2rem; /* 减小字体大小，原来是2.5rem */
+    white-space: nowrap; /* 确保文本在一行内显示 */
+    overflow: hidden; /* 防止溢出 */
+    text-overflow: ellipsis; /* 如果溢出则显示省略号 */
+    margin-bottom: 1rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    max-width: 100%; /* 确保不超过容器宽度 */
 }
 
 .hero-content p {
