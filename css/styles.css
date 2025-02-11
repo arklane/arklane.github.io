@@ -126,6 +126,27 @@ body {
     text-align: center;
 }
 
+/* 给主要内容区域添加上边距，防止被导航栏遮挡 */
+main {
+    padding-top: 80px; /* 根据导航栏高度调整 */
+}
+
+/* 调整hero区域样式 */
+.hero {
+    min-height: calc(100vh - 80px); /* 考虑导航栏高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-text);
+    padding: 2rem 0;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .nav-container {
