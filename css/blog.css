@@ -67,16 +67,18 @@
 
 .post-image {
     width: 100%;
-    height: 200px;
+    max-width: 600px; /* 限制最大宽度 */
+    height: 300px; /* 调整预览图高度 */
     overflow: hidden;
     border-radius: 8px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem auto; /* 居中显示 */
 }
 
 .post-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain; /* 改为contain确保图片完整显示 */
+    background-color: #f8f9fa; /* 添加背景色 */
     transition: transform 0.3s ease;
 }
 
@@ -85,10 +87,12 @@
 }
 
 .post-content img {
-    max-width: 100%;
+    max-width: 80%; /* 控制内容图片最大宽度 */
     height: auto;
+    display: block; /* 确保图片居中 */
+    margin: 1.5rem auto; /* 上下间距1.5rem，左右自动居中 */
     border-radius: 8px;
-    margin: 1.5rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 添加轻微阴影 */
 }
 
 .blog-editor {
@@ -111,4 +115,15 @@
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .post-image {
+        height: 200px; /* 移动端降低图片高度 */
+    }
+    
+    .post-content img {
+        max-width: 100%; /* 移动端图片占满宽度 */
+    }
 }
